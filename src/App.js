@@ -24,6 +24,13 @@ class App extends Component {
     })
   }
 
+  //deletes a bot from bot army
+  delBotArmy = (bot) => {
+    this.setState({
+      YourBotArmy:this.state.YourBotArmy.filter( curBot => curBot.id != bot.id )
+    })
+  }
+
   //add bots to bot army
   addBotArmy = (bot) => {
     this.setState({
@@ -35,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <BotsPage botArmy={this.state.YourBotArmy} addBotArmy={this.addBotArmy} botList={this.state.BotCollection} />
+        <BotsPage delBotArmy={this.delBotArmy} botArmy={this.state.YourBotArmy} addBotArmy={this.addBotArmy} botList={this.state.BotCollection} />
 
       </div>
     );

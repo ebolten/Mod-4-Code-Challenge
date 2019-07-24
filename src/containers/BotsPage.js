@@ -10,7 +10,7 @@ class BotsPage extends React.Component {
       <div>
         {/* put your components here */}
 
-        <YourBotArmy botArmy={this.props.botArmy} />
+        <YourBotArmy delBotArmy={this.props.delBotArmy} botArmy={this.props.botArmy} />
         <BotCollection addBotArmy={this.props.addBotArmy} botList={this.props.botList} />
 
       </div>
