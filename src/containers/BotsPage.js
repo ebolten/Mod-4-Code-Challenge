@@ -1,6 +1,7 @@
 import React from "react";
 import BotCollection from "./BotCollection";
 import YourBotArmy from "./YourBotArmy";
+import BotSpecs from "../components/BotSpecs";
 
 class BotsPage extends React.Component {
   //start here with your code for step one
@@ -11,7 +12,10 @@ class BotsPage extends React.Component {
         {/* put your components here */}
 
         <YourBotArmy delBotArmy={this.props.delBotArmy} botArmy={this.props.botArmy} />
-        <BotCollection addBotArmy={this.props.addBotArmy} botList={this.props.botList} />
+
+        {
+          this.props.renderedBot != null ? <BotSpecs renderBot={this.props.renderBot} addBotArmy={this.props.addBotArmy} bot={this.props.renderedBot} /> : <BotCollection renderBot={this.props.renderBot} addBotArmy={this.props.addBotArmy} botList={this.props.botList} />
+        }
 
       </div>
     );

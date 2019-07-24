@@ -9,7 +9,8 @@ class App extends Component {
     super()
     this.state={
       YourBotArmy:[],
-      BotCollection:[]
+      BotCollection:[],
+      RenderBot:null
     }
   }
 
@@ -24,10 +25,16 @@ class App extends Component {
     })
   }
 
+  renderBot = (bot) => {
+    this.setState({
+      RenderBot:bot
+    })
+  }
+
   //deletes a bot from bot army
   delBotArmy = (bot) => {
     this.setState({
-      YourBotArmy:this.state.YourBotArmy.filter( curBot => curBot.id != bot.id )
+      YourBotArmy:this.state.YourBotArmy.filter(curBot => curBot.id != bot.id)
     })
   }
 
@@ -42,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <BotsPage delBotArmy={this.delBotArmy} botArmy={this.state.YourBotArmy} addBotArmy={this.addBotArmy} botList={this.state.BotCollection} />
+        <BotsPage renderedBot={this.state.RenderBot} renderBot={this.renderBot} delBotArmy={this.delBotArmy} botArmy={this.state.YourBotArmy} addBotArmy={this.addBotArmy} botList={this.state.BotCollection} />
 
       </div>
     );
