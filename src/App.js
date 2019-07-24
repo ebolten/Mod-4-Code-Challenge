@@ -24,11 +24,18 @@ class App extends Component {
     })
   }
 
+  //add bots to bot army
+  addBotArmy = (bot) => {
+    this.setState({
+      YourBotArmy:[...this.state.YourBotArmy,bot]
+    })
+  }
+
   render() {
     return (
       <div className="App">
 
-        <BotsPage botList={this.state.BotCollection} />
+        <BotsPage botArmy={this.state.YourBotArmy} addBotArmy={this.addBotArmy} botList={this.state.BotCollection} />
 
       </div>
     );
